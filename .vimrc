@@ -26,3 +26,6 @@ nmap <F8> :TagbarToggle<CR>
 
 colorscheme solarized
 
+filetype on
+
+set nu
