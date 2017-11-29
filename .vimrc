@@ -11,7 +11,9 @@ set nowrapscan
 set hlsearch
 set t_Co=256
 
+set noundofile set nobackup set noswapfile
 inoremap jj <esc>
+
 
 """""""""""""""""""""""""""Configuration of vundle """"""""""""""""""
 filetype off
