@@ -9,6 +9,9 @@ set fileencodings=utf-8,gbk
 set nobackup
 set nowrapscan
 set hlsearch
+set t_Co=256
+
+inoremap jj <esc>
 
 """""""""""""""""""""""""""Configuration of vundle """"""""""""""""""
 filetype off
@@ -17,6 +20,7 @@ call vundle#rc('$HOME/.kidvim/bundle')
 Bundle 'gmarik/vundle'
 "Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'rickharris/vim-monokai' 
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-lua-ftplugin'
 
@@ -24,7 +28,8 @@ filetype on
 
 nmap <F8> :TagbarToggle<CR>
 
-colorscheme solarized
+"colorscheme solarized
+colorscheme monokai
 
 filetype on
 
