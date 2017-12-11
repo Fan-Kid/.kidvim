@@ -2,3 +2,9 @@
 bundle/vim-colors-solarized
 bundle/vim-monokai/
 bundle/vim-colors-solarized
+bundle/vim-airline/
+bundle/taglist.vim/
+bundle/nerdtree/
+bundle/minibufexpl.vim/
+bundle/vim-colors-solarized
+bundle/YouCompleteMe/
