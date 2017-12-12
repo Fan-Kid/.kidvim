@@ -1,10 +1,11 @@
 # .kidvim
-
-add "source ~/.kidvim/.vimrc" in _vimrc
+1.Download：http://www.vim.org/download.php#pc
+	Download the vim with Python, Perl, Ruby, etc.
+2.add "source ~/.kidvim/.vimrc" in _vimrc
 
 http://www.cnblogs.com/ppboy_dxh/p/3226938.html
 
-Install Plugins:
+3.Install Plugins:
 `:BundleInstall`
 
 

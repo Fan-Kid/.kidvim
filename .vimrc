@@ -1,22 +1,35 @@
 
+set encoding=utf-8
+if has("win32")
+set fileencoding=chinese
+else
+set fileencoding=utf-8
+endif
+"解决菜单乱码
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+"解决consle输出乱码
+language messages zh_CN.utf-8
+let &termencoding=&encoding
+
 set nocompatible
 set nu
-syntax enable
-syntax on
-set background=dark
-let &termencoding=&encoding
-set fileencodings=utf-8,gbk
-set nobackup
+"set background=dark
 set nowrapscan
 set hlsearch
 set t_Co=256
-
+set pythonthreedll=C:/Users/Administrator/AppData/Local/Programs/Python/Python36/python36.dll
+set luadll=c:/Lua/lua53.dll
+" 备份缓存
 set noundofile 
 set nobackup 
 set noswapfile
+
+filetype on
+syntax enable
+syntax on
+
 inoremap jj <esc>
-
-
 """""""""""""""""""""""""""Configuration of vundle """"""""""""""""""
 filetype off
 set rtp+=~/.kidvim/bundle/vundle/
@@ -75,13 +88,6 @@ nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 "" -------------------------------
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-filetype on
-
-nmap <F8> :TagbarToggle<CR>
-
+" 配色方案
 "colorscheme solarized
 colorscheme monokai
-
-filetype on
-
-set nu
