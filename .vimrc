@@ -14,7 +14,7 @@ let &termencoding=&encoding
 
 set nocompatible
 set nu
-"set background=dark
+set background=dark
 set nowrapscan
 set hlsearch
 set t_Co=256
@@ -25,9 +25,27 @@ set noundofile
 set nobackup 
 set noswapfile
 
+set ai!				" 自动缩进
+set guioptions-=T	"去除vim的GUI版本中得toolbar
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+let mapleader=","
+nmap <leader>w    :w<CR>
+
 filetype on
 syntax enable
 syntax on
+" 默认窗口最大化
+autocmd GUIEnter * simalt ~x
 
 inoremap jj <esc>
 """""""""""""""""""""""""""Configuration of vundle """"""""""""""""""
@@ -44,10 +62,13 @@ Bundle 'xolox/vim-lua-ftplugin'
 ""--------- NERDTree -------
 Bundle 'scrooloose/nerdtree'
 let NERDTreeWinPos='right'
-let NERDTreeWinSize=30
-map <F2> :NERDTreeToggle<CR>
-
+let NERDTreeWinSize=35
+let NERDTreeShowHidden=0
 let NERDTreeIgnore = ['\.meta']		""忽略文件
+map <leader>nn :NERDTreeToggle<cr>
+map <leader>nb :NERDTreeFromBookmark<Space>
+map <leader>nf :NERDTreeFind<cr>
+
 ""--------------------------
 
 "" ------- MiniBufExplorer --------------
@@ -78,8 +99,8 @@ let Tlist_Use_Left_Windo =1             "在左侧窗口中显示taglist窗口
 "" --------------------------------------------------------------------------------
 
 "" ------- YouCompleteMe --------
-Bundle 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+"Bundle 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf='~/.kidvim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_collect_identifiers_from_tag_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_confirm_extra_conf=0
@@ -89,5 +110,5 @@ nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 配色方案
-"colorscheme solarized
-colorscheme monokai
+colorscheme solarized
+"colorscheme monokai
