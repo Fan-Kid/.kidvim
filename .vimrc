@@ -1,3 +1,4 @@
+source ~/.kidvim/vimrcs/filetypes.vim
 
 set encoding=utf-8
 if has("win32")
@@ -171,12 +172,25 @@ let g:ycm_collect_identifiers_from_tag_files = 1
 let g:ycm_key_invoke_completion = '<C-/>'
 
 "" -------------------------------
+
+"------------------ Markdown -----------------------
+Plugin 'godlygeek/tabular'
+
+Plugin 'plasticboy/vim-markdown'
+
+Plugin 'iamcco/markdown-preview.vim'
+
+let g:mkdp_path_to_chrome=""
+let g:mkdp_auto_close=0
+nmap <F7> <Plug>MarkdownPreview
+nmap <F8> <Plug>StopMarkdownPreview
+"-----------------------------------------
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "=====================================================================
 " 配色方案
-"colorscheme solarized
-colorscheme monokai
+colorscheme solarized
+"colorscheme monokai
 
 filetype on
 "启用语法高亮
