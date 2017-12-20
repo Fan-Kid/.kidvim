@@ -1,15 +1,25 @@
 " Set Comment Start
-autocmd BufNewFile *.cs,*.lua,*.md,*.php,*.js,*.cpp exec ":call SetComment()" | normal 10Go
+autocmd BufNewFile *.py,*.cs,*.lua,*.md,*.php,*.js,*.cpp exec ":call SetComment()" | normal 10Go
+
+" 不同语言注释符号不同
+set commentString = "";
+if %:e ~= ".py"
+    let commentString = "#"
+elseif %:e ~= ".lua"
+    let commentString = "--"
+else 
+    let commentString = ""
+endif
 
 function SetComment()
-	call append(0, "/***********************************************")
-	call append(1, " * Filename 		: ".expand("%:t"))
-	call append(2, " * ")
-	call append(3, " * Author			: Kid - 347494143@qq.com")
-	call append(4, " * Create			: ".strftime("%Y-%m-%d %H:%M:%S"))
-	call append(5, " * Last Modified	: ".strftime("%Y-%m-%d %H:%M:%S"))
-	call append(6, " * Description 		: ")
-	call append(7, " * **********************************************/")
+	call append(0, commentString+"/***********************************************")
+	call append(1, commentString+" * Filename\t\t: ".expand("%:t"))
+	call append(2, commentString+" * ")
+	call append(3, commentString+" * Author\t\t: Kid - 347494143@qq.com")
+	call append(4, commentString+" * Create\t\t: ".strftime("%Y-%m-%d %H:%M:%S"))
+	call append(5, commentString+" * Last Modified\t: ".strftime("%Y-%m-%d %H:%M:%S"))
+	call append(6, commentString+" * Description\t\t: ")
+	call append(7, commentString+" * **********************************************/")
 	"echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
 endf
 map <F4> : call SetComment()<CR>:10<CR>o
@@ -25,7 +35,7 @@ function DataInsert()
 	endif
 	echohl WarningMsg | echo "Successful in updating the copyright." | echohl None
 endf
-autocmd FileWritePre,BufWritePre *.cs,*.lua,*.md,*.php,*.js,*.cpp ks|call DataInsert() | 's
+autocmd FileWritePre,BufWritePre *.py,*.cs,*.lua,*.md,*.php,*.js,*.cpp ks|call DataInsert() | 's
 " Set Last Modified Time End
 
 " 在插入状态下输入”xdt "“后Enter来插入系统当前时间
