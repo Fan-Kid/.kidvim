@@ -1,26 +1,35 @@
 " Set Comment Start
 autocmd BufNewFile *.py,*.cs,*.lua,*.md,*.php,*.js,*.cpp exec ":call SetComment()" | normal 10Go
 
-" 不同语言注释符号不同
-set commentString = "";
-if %:e ~= ".py"
-    let commentString = "#"
-elseif %:e ~= ".lua"
-    let commentString = "--"
-else 
-    let commentString = ""
-endif
+   
 
 function SetComment()
-	call append(0, commentString+"/***********************************************")
-	call append(1, commentString+" * Filename\t\t: ".expand("%:t"))
-	call append(2, commentString+" * ")
-	call append(3, commentString+" * Author\t\t: Kid - 347494143@qq.com")
-	call append(4, commentString+" * Create\t\t: ".strftime("%Y-%m-%d %H:%M:%S"))
-	call append(5, commentString+" * Last Modified\t: ".strftime("%Y-%m-%d %H:%M:%S"))
-	call append(6, commentString+" * Description\t\t: ")
-	call append(7, commentString+" * **********************************************/")
-	"echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
+    " 不同语言注释符号不同
+    let commentStart = "" 
+    let commentEnd = "" 
+    if expand("%:e") ==? 'py'
+        let commentStart = "'''"
+        let commentEnd = "'''"
+    elseif expand("%:e") == 'lua'
+        let commentStart = "--[["
+        let commentEnd = "--]]"
+    elseif expand("%:e") ==? 'md' 
+        let commentStart = "<!--"
+        let commentEnd = "-->"
+    elseif (expand("%:e") ==? 'cpp') || (expand("%:e") ==? 'c') || (expand("%:e") ==? 'cs')
+        let commentStart = "/*"
+        let commentEnd = "*/" 
+    endif
+
+    call append(0, commentStart."***************************************************")
+	call append(1, " * Filename\t\t\t: ".expand("%:t"))
+	call append(2, " * ")
+	call append(3, " * Author\t\t\t: Kid - 347494143@qq.com")
+	call append(4, " * Create\t\t\t: ".strftime("%Y-%m-%d %H:%M:%S"))
+	call append(5, " * Last Modified\t: ".strftime("%Y-%m-%d %H:%M:%S"))
+	call append(6, " * Description\t\t: ")
+    call append(7, "***************************************************".commentEnd)
+	echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
 endf
 map <F4> : call SetComment()<CR>:10<CR>o
 " Set Comment End
@@ -43,5 +52,5 @@ iab xdt <c-r>=strftime("20%y-%m-%d %H:%M(%A)")<cr>
 "示例：=======2015.01.06.17:35(星期二)=======
 "
 "注释///
-inoremap /// /// <summary><CR>///<CR>/// </summary>
-inoremap ----- ---------------------  -------------------------<esc>bi
+iab /// <c-r>/// <summary><CR>///<CR>/// </summary>
+iab ----- <c-r>---------------------  -------------------------<esc>bi

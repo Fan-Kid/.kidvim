@@ -139,8 +139,10 @@ set nobackup
 set noswapfile
 
 " 1 tab == 4 spaces
+set smarttab
+set tabstop=4
+set softtabstop=4
 set shiftwidth=4
-set ts=4
 set expandtab
 
 "}}}
