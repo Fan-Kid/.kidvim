@@ -3,7 +3,7 @@ autocmd BufNewFile *.py,*.cs,*.lua,*.md,*.php,*.js,*.cpp exec ":call SetComment(
 
    
 
-function SetComment()
+function! SetComment()
     " 不同语言注释符号不同
     let commentStart = "" 
     let commentEnd = "" 
@@ -16,7 +16,9 @@ function SetComment()
     elseif expand("%:e") ==? 'md' 
         let commentStart = "<!--"
         let commentEnd = "-->"
-    elseif (expand("%:e") ==? 'cpp') || (expand("%:e") ==? 'c') || (expand("%:e") ==? 'cs')
+    elseif (expand("%:e") ==? 'cpp') || 
+           (expand("%:e") ==? 'c') || 
+           (expand("%:e") ==? 'cs')
         let commentStart = "/*"
         let commentEnd = "*/" 
     endif
@@ -36,7 +38,7 @@ map <F4> : call SetComment()<CR>:10<CR>o
 
 " Set Last Modified Time Start
 " 更新最近修改时间和文件名
-function DataInsert()
+function! DataInsert()
 	call cursor(5,1)
 	if search('Last Modified') != 0
 		let line = line('.')
@@ -46,6 +48,11 @@ function DataInsert()
 endf
 autocmd FileWritePre,BufWritePre *.py,*.cs,*.lua,*.md,*.php,*.js,*.cpp ks|call DataInsert() | 's
 " Set Last Modified Time End
+"
+
+" 设置行宽80
+au BufRead,BufNewFile *.asm,*.c,*.cpp,*.java,*.cs,*.sh,*.lua,*.pl,*.pm,*.py,*.rb,*.erb,*.hs,*.vim 2match Underlined /.\%81v/
+set textwidth=80
 
 " 在插入状态下输入”xdt "“后Enter来插入系统当前时间
 iab xdt <c-r>=strftime("20%y-%m-%d %H:%M(%A)")<cr>
@@ -53,5 +60,6 @@ iab xdt <c-r>=strftime("20%y-%m-%d %H:%M(%A)")<cr>
 "
 "注释///
 iab /// /// <summary><CR>///<CR>/// </summary><esc>kA 
+
 " 横线
 iab ----- ----------------------------------------------<esc>xa

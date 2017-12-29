@@ -121,6 +121,7 @@ nmap <F8> <Plug>StopMarkdownPreview
 source ~/.kidvim/vimrcs/filetypes.vim
 
 set encoding=utf-8
+set nobomb
 if has("win32")
 set fileencoding=chinese
 else
@@ -145,6 +146,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+
 "}}}
 
 " 状态条(Status Line)-----------------------------------------{{{
@@ -152,8 +154,13 @@ set expandtab
 
 " 基本设置(Basic Settings) --------------------------------------------------------{{{
 set nocompatible
+" 显示行号
 set number
+
+" 背景颜色
 set background=dark
+
+" 禁止搜索到文件两端时重新搜索
 set nowrapscan
 
 " 搜索高亮
@@ -178,7 +185,7 @@ set ai!
 "去除vim的GUI版本中得toolbar
 set guioptions-=T	
 
-"高亮光标所在行  
+"高亮光标所在行
 set cursorline
 
 "取消光标闪烁  
@@ -191,20 +198,25 @@ set ruler
 "设置匹配模式，相当于括号匹配
 set showmatch
 
+" 允许折叠
 set foldenable
 
 " 默认窗口最大化
 autocmd GUIEnter * simalt ~x
 
 " 配色方案
-colorscheme solarized
-"colorscheme monokai
+"colorscheme solarized
+colorscheme monokai
 
 filetype on
 "启用语法高亮
 syntax enable
 syntax on
 
+" 取消自动注释(可能因为覆盖了，没有生效)
+" setlocal formatoptions-=r
+" 取消自动注释(每次打开文件设置取消自动注释)
+autocmd BufNewFile,BufRead * setlocal formatoptions-=r
 " }}}
 
 "VimScript file settings ---------------{{{
