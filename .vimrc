@@ -144,6 +144,8 @@ set smarttab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+
+" 空格代替tab键
 set expandtab
 
 

@@ -16,33 +16,32 @@ function! SetComment()
     elseif expand("%:e") ==? 'md' 
         let commentStart = "<!--"
         let commentEnd = "-->"
-    elseif (expand("%:e") ==? 'cpp') || 
-           (expand("%:e") ==? 'c') || 
-           (expand("%:e") ==? 'cs')
+    elseif (expand("%:e") ==? 'cpp') || (expand("%:e") ==? 'c') || (expand("%:e") ==? 'cs')
         let commentStart = "/*"
         let commentEnd = "*/" 
     endif
 
     call append(0, commentStart."***************************************************")
-	call append(1, " * Filename\t\t\t: ".expand("%:t"))
+	call append(1, " * Filename:        ".expand("%:t"))
 	call append(2, " * ")
-	call append(3, " * Author\t\t\t: Kid - 347494143@qq.com")
-	call append(4, " * Create\t\t\t: ".strftime("%Y-%m-%d %H:%M:%S"))
-	call append(5, " * Last Modified\t: ".strftime("%Y-%m-%d %H:%M:%S"))
-	call append(6, " * Description\t\t: ")
+	call append(3, " * Author:          Kid <347494143@qq.com>")
+	call append(4, " * Create:          ".strftime("%Y-%m-%d %H:%M:%S"))
+	call append(5, " * Last Change:		".strftime("%Y-%m-%d %H:%M:%S"))
+	call append(6, " * Description:     ")
     call append(7, "***************************************************".commentEnd)
 	echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
 endf
-map <F4> : call SetComment()<CR>:10<CR>o
+" map <F4> : call SetComment()<CR>:10<CR>o
+map <F4> : call SetComment()<CR>
 " Set Comment End
 
 " Set Last Modified Time Start
 " 更新最近修改时间和文件名
 function! DataInsert()
 	call cursor(5,1)
-	if search('Last Modified') != 0
+	if search('Last Change') != 0
 		let line = line('.')
-		call setline(line, " * Last Modified\t: ".strftime("%Y-%m-%d %H:%M:%S"))
+		call setline(line, " * Last Change:\t\t".strftime("%Y-%m-%d %H:%M:%S"))
 	endif
 	echohl WarningMsg | echo "Successful in updating the copyright." | echohl None
 endf
