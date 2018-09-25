@@ -1,6 +1,6 @@
 编译源码(支持Python)
 -----
-Windows   
+### Windows   
 本机配置：   
 win10 x64   
 Visual Studio 2017
@@ -101,7 +101,7 @@ Visual Studio 2017
     ```
 
 
-Unix(TODO)
+### Unix(TODO)
 
 
 
@@ -132,15 +132,15 @@ Unix(TODO)
 		* C#: `--cs-completer`
 
 
-~~ 1. 下载：http://www.vim.org/download.php#pc~~
+~~1. 下载：http://www.vim.org/download.php#pc ~~
 	~~下载支持python的vim版本~~
 
-~~ 2. 在_vimrc添加 `source ~/.kidvim/.vimrc`~~  
+~~2. 在_vimrc添加 `source ~/.kidvim/.vimrc`~~  
 
-~~ 3. Install Plugins:~~   
+~~3. Install Plugins:~~   
 ~~`:BundleInstall`~~   
 
-~~ 4. 安装 `YouCompleteMe` 插件   
+~~4. 安装 `YouCompleteMe` 插件   
 	* 安装以下软件：
 		* [CMake](https://cmake.org/download/) 
 		* [7zip](http://www.7-zip.org/download.html)   
@@ -160,13 +160,12 @@ Unix(TODO)
 
 
 参考:
-> 编译Vim：http://vim.wikia.com/wiki/Building_Vim
-> 编译vim（通过Visual Studio）：http://vim.wikia.com/wiki/Build_Vim_in_Windows_with_Visual_Studio
-> 
+> 编译Vim：http://vim.wikia.com/wiki/Building_Vim   
+> 编译vim（通过Visual Studio）：http://vim.wikia.com/wiki/Build_Vim_in_Windows_with_Visual_Studio   
 > http://www.cnblogs.com/ppboy_dxh/p/3226938.html   
 > http://blog.csdn.net/jasonding1354/article/details/45368593   
 > http://www.open-open.com/lib/view/open1414227253419.html   
 > Awesome:https://github.com/amix/vimrc.git   
-> YouCompleteMe:http:https://github.com/Valloric/YouCompleteMe/blob/master/README.md#full-installation-guide
+> YouCompleteMe:http:https://github.com/Valloric/YouCompleteMe/blob/master/README.md#full-installation-guide   
 
 
