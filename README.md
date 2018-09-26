@@ -75,7 +75,9 @@ Visual Studio 2017
 		* `\current\build\vim\src\msvc2015.bat`配置环境变量以允许在命令提示符下构建
 		* `\myname\bin\vimconfig.cmd`为构建Vim时所需的选项配置环境变量
 		* `nmake.exe`编译和链接Vim
-	* 如果需要可以运行下列命令，生成一个命令行的vim：
+        * **注意：**
+            要修改msvc2015.bat中的vcvarsall.bat的路径和SDK版本为当前系统下的路径和版本
+	* 运行下列命令可以生成一个命令行下的vim：
 		```
 		cd \current\build\vim\src
 		nmake -f Make_mvc.mak gui=no
@@ -102,7 +104,8 @@ Visual Studio 2017
 
 
 ### Unix(TODO)
-
+   
+      
 
 
 配置.kidvim
@@ -128,30 +131,9 @@ Visual Studio 2017
 		cd %USERPROFILE%/.kidvim/bundle/YouCompleteMe
 		install.py --clang-completer
 		```
-
 		* C#: `--cs-completer`
 
 
-~~1. 下载：http://www.vim.org/download.php#pc ~~   
-	下载支持python的vim版本~~
-
-~~2. 在_vimrc添加 `source ~/.kidvim/.vimrc`~~  
-
-~~3. Install Plugins:~~   
-~~`:BundleInstall`~~   
-
-~~4. 安装 `YouCompleteMe` 插件   
-	* 安装以下软件：
-		* [CMake](https://cmake.org/download/) 
-		* [7zip](http://www.7-zip.org/download.html)   
-		* [Python 2 or Python 3](https://www.python.org/downloads/windows/)
-		* *Visual Studio 2015 以上*, 装好之后先建个MFC工程，编译运行一次
-	* 编译YCM：
-		```
-		cd %USERPROFILE%/.kidvim/bundle/YouCompleteMe
-		install.py --clang-completer
-		```
-        * C#: `--cs-completer`~~
 
    
    
@@ -160,12 +142,11 @@ Visual Studio 2017
 
 
 参考:
-> 编译Vim：http://vim.wikia.com/wiki/Building_Vim   
-> 编译vim（通过Visual Studio）：http://vim.wikia.com/wiki/Build_Vim_in_Windows_with_Visual_Studio   
-> http://www.cnblogs.com/ppboy_dxh/p/3226938.html   
-> http://blog.csdn.net/jasonding1354/article/details/45368593   
-> http://www.open-open.com/lib/view/open1414227253419.html   
-> Awesome:https://github.com/amix/vimrc.git   
-> YouCompleteMe:http:https://github.com/Valloric/YouCompleteMe/blob/master/README.md#full-installation-guide   
+> 编译Vim : http://vim.wikia.com/wiki/Building_Vim   
+> 编译vim（通过Visual Studio）: http://vim.wikia.com/wiki/Build_Vim_in_Windows_with_Visual_Studio   
+> Vundle管理配置Vim插件 : http://blog.csdn.net/jasonding1354/article/details/45368593   
+> Vim十大必备插件 : http://www.open-open.com/lib/view/open1414227253419.html   
+> Awesome Vim : https://github.com/amix/vimrc.git   
+> YouCompleteMe : https://github.com/Valloric/YouCompleteMe/blob/master/README.md#full-installation-guide   
 
 

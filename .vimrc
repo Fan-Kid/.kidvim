@@ -202,6 +202,7 @@ set showmatch
 
 " 允许折叠
 set foldenable
+set foldmethod=marker
 
 " 默认窗口最大化
 autocmd GUIEnter * simalt ~x
